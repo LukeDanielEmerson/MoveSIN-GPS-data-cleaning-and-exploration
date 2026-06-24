@@ -13,6 +13,7 @@
 
 # Load packages ----------------------------------------------------------------
 library(gridExtra)
+library(grid)
 
 # GPS data cleaning considerations --------------------------------------------- 
 #Although standard cleaning procedures apply to most workflows using telemetry
