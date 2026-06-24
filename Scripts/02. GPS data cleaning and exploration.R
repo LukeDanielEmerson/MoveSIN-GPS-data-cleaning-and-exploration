@@ -53,6 +53,8 @@ getwd()
 
 # Load simulated feral cat data ------------------------------------------------
 # NOTE THIS IS NOT REAL DATA AND SHOULD NOT BE USED FOR FORMAL ANALYSES!!!
+cat("\nNOTE: THIS IS NOT REAL DATA AND SHOULD NOT BE USED FOR FORMAL ANALYSES!!!\n")
+
 # Load the list
 files <- list.files("Telemetry_data", full.names = TRUE)
 files
@@ -98,9 +100,9 @@ nrow(cat_data)
 # Look at the headers and the data structures
 head(cat_data)
 summary(cat_data)
-# DOP (Dilution of Precision) is a unitless ratio that describes how satellite
-# geometry affects the precision of a GPS location estimate.
 
+cat("\nDOP (Dilution of Precision) is a unitless ratio that describes how satellite
+geometry affects the precision of a GPS location estimate.\n")
 
 
 # Define timezone --------------------------------------------------------------
@@ -511,7 +513,9 @@ ggplot(mean_disp, aes(x = step_hour, y = mean_step_km, color = device.name, grou
   scale_x_continuous(breaks = 0:23) +
   theme_minimal()
 
-# Any red flags???
+# Question
+cat("\nQUESTION: Any red flags???\n")
+
 
 # Assess displacement per week per individual to determine individual variability ----
 valid_steps_all <- valid_steps_all %>%
@@ -550,7 +554,9 @@ ggplot(mean_disp_week, aes(x = step_hour, y = mean_step_km, color = device.name,
     axis.title.y = element_text(size = 12)  # optional: y-axis title size
   )
 
-# Note: Some individuals show unusually small displacement... possible reasons?
+# QUESYION
+cat("\nQUESTION:Some individuals show unusually small displacement... possible reasons?\n")
+
 
 # Isolate and investigate C25F14 C25M33 and C25M36 data
 # Filter to just the individuals of interest
@@ -582,7 +588,7 @@ ggplot(mean_disp_week, aes(x = step_hour, y = mean_step_km, color = device.name,
     axis.title.y = element_text(size = 12)
   )
 
-# Based on this drop all data for C25F14 and C25M36
+# Based on this, drop all data for C25F14 and C25M36
 # Keep only data up to and including week 30 for C25M33
 # Could use more finite approach than this in terms of data filtering
 
@@ -878,6 +884,8 @@ cat("\n================ Single tiger  ================\n")
 
 # Load simulated tiger data ----------------------------------------------------
 # NOTE THIS IS NOT REAL DATA AND SHOULD NOT BE USED FOR FORMAL ANALYSES!!!
+cat("\nNOTE: THIS IS NOT REAL DATA AND SHOULD NOT BE USED FOR FORMAL ANALYSES!!!\n")
+
 # Load the list
 files <- list.files("Telemetry_data", full.names = TRUE)
 files
@@ -1238,7 +1246,6 @@ leaflet(gps_sf_ll) %>%
     values = ~order_num,
     title = "Progress (First → Last)"
   )
-
 
 
 
